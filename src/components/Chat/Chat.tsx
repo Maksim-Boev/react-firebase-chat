@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const Chat = () => {
+const Chat: FC = () => {
   return <div>Chat</div>;
 };
 

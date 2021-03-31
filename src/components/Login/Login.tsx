@@ -1,7 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
+import { Container, Grid } from "@material-ui/core";
 
-const Login = () => {
-  return <div>Login</div>;
+const Login: FC = () => {
+  return (
+    <Container>
+      <Grid container />
+    </Container>
+  );
 };
 
 export default Login;

@@ -1,11 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { privatRoutes, publicRoutes } from "../../routes";
 import { ConstTypes } from "../../utils/consts";
 
-const AppRouter = () => {
-  type User = boolean;
-  const user: User = true;
+const AppRouter: FC = () => {
+  const user = true;
 
   return user ? (
     <Switch>
