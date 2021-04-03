@@ -1,10 +1,12 @@
 import React, { FC } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import firebase from "firebase";
 import { privatRoutes, publicRoutes } from "../../routes";
 import { ConstTypes } from "../../utils/consts";
 
 const AppRouter: FC = () => {
-  const user = true;
+  const [user] = useAuthState(firebase.auth());
 
   return user ? (
     <Switch>
