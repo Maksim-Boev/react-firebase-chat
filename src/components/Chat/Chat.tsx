@@ -34,8 +34,7 @@ const Chat: FC = () => {
 
   const sendMessage = () => {
     if (value.length > 0) {
-      firebase
-        .firestore()
+      firestore()
         .collection("messages")
         .doc()
         .set(userMessage)

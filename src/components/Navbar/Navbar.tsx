@@ -15,8 +15,8 @@ const Navbar: FC = () => {
   const [user] = useAuthState(firebase.auth());
 
   const img = user?.photoURL;
-  console.log(`"${img}"`);
   const name = user?.displayName;
+
   return (
     <StyledAppBar>
       <Toolbar>

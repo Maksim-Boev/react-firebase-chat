@@ -8,7 +8,7 @@ import "./index.css";
 import App from "./App";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCqjtDKNDqpYA_mTfZ3b7lU1GOrsWuTzKg",
+  apiKey: process.env.REACT_APP_KEY,
   authDomain: "feribase-1.firebaseapp.com",
   projectId: "feribase-1",
   storageBucket: "feribase-1.appspot.com",
