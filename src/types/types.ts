@@ -1,6 +1,6 @@
 import firebase from "firebase";
 
-export type UserMessage = {
+export type UserMessageType = {
   uid: string | undefined;
   photoURL: string | null | undefined;
   displayName: string | null | undefined;

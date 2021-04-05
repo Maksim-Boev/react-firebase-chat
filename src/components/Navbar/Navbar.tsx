@@ -20,16 +20,16 @@ const Navbar: FC = () => {
   return (
     <StyledAppBar>
       <Toolbar>
-        <Avatar src={`${img}`} alt="avatar" />
+        <Avatar src={`${img}`} />
         <UserName>{name}</UserName>
         <StyledGrid>
           {user ? (
             <StyledButton onClick={() => firebase.auth().signOut()}>
-              Выйти
+              output
             </StyledButton>
           ) : (
             <NavLink to={ConstTypes.LOGIN_ROUTE}>
-              <StyledButton>Логин</StyledButton>
+              <StyledButton>login</StyledButton>
             </NavLink>
           )}
         </StyledGrid>

@@ -7,10 +7,10 @@ import { StyledGrid, StyledButton } from "./StyledLogin";
 
 const Login: FC = () => {
   const { auth } = firebase;
+
   const login = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    const { user } = await auth().signInWithPopup(provider);
-    console.log(user?.displayName);
+    await auth().signInWithPopup(provider);
   };
 
   return (

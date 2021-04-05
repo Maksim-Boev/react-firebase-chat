@@ -14,7 +14,7 @@ import {
   MessageItem,
 } from "./StyledChat";
 import Loader from "../Loader";
-import { UserMessage } from "../../types/types";
+import { UserMessageType } from "../../types/types";
 
 const Chat: FC = () => {
   const [value, setValue] = useState("");
@@ -24,7 +24,7 @@ const Chat: FC = () => {
     firestore().collection("messages").orderBy("time")
   );
 
-  const userMessage: UserMessage = {
+  const userMessage: UserMessageType = {
     uid: user?.uid,
     displayName: user?.displayName,
     photoURL: user?.photoURL,
@@ -46,32 +46,31 @@ const Chat: FC = () => {
     setValue("");
   };
 
+  const handlerKey = (e: any) => e.key === "Enter" && sendMessage();
+
   return (
     <Container>
       <Message>
         {loading && <Loader />}
         {messages &&
-          messages.map((message, index) => (
-            <MessageItem
-              position={user?.uid === message.uid}
-              key={index.toString()}
-            >
-              <Avatar src={message.photoURL} />
-              <div>{message.displayName}</div>
-              <div>{message.text}</div>
+          messages.map(({ uid, photoURL, displayName, text }, index) => (
+            <MessageItem position={user?.uid === uid} key={index.toString()}>
+              <Avatar src={photoURL} />
+              <div>{displayName}</div>
+              <div>{text}</div>
             </MessageItem>
           ))}
       </Message>
       <Wraper>
         <TextMessage
-          id="outlined-search"
+          id="outlined-basic"
           label="Text"
-          type="search"
           variant="outlined"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          onKeyPress={handlerKey}
         />
-        <StyledButton onClick={sendMessage}>Отправить</StyledButton>
+        <StyledButton onClick={sendMessage}>Send</StyledButton>
       </Wraper>
     </Container>
   );
